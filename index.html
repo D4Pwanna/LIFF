@@ -53,7 +53,7 @@
     function logOut() {
     }
 
-    function closed() {
+    function closed() { //ปิดหน้าต่าง
       liff.closeWindow()
     }
 
@@ -62,14 +62,14 @@
             document.getElementById("scanCode").append(result.value)
     }
 
-    function openWindow() {
+    function openWindow() {  //กดเข้าเว็บไซต์
       liff.openWindow({
                 url: "https://line.me",
                 external: true
             })
     }
 
-    async function getFriendship() {
+    async function getFriendship() {   
       const friend = await liff.getFriendship()
             document.getElementById("friendship").append(friend.friendFlag)
             if (!friend.friendFlag) {
@@ -128,10 +128,15 @@
     }
     async function main() {
       await liff.init({ liffId: "1657740979-wrgVbK4O" })
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      getFriendship()
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+            if (liff.isLoggedIn()) {
+                  getEnvironment()
+                  getUserProfile()
+                  getContext()
+                  getFriendship()
+    } else {
+      liff.login()
+    }
       // createUniversalLink()
     }
     main()
