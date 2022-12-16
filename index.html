@@ -6,7 +6,7 @@
   <title>My LIFF app</title>
   <!-- <link rel="stylesheet" href="css/style.css" media="all"> -->
   <script>
-  document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '">')
+  document.write('<link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '">') //ทำให้เวลาเรารันแล้วขึ้นเลยย
 
   </script>
 </head>
@@ -77,9 +77,9 @@
     }
 
     async function scanCode() {
-      const result = await liff.scanCode()
+            const result = await liff.scanCode()
             document.getElementById("scanCode").append(result.value)
-    }
+        }
 
     function openWindow() {  //กดเข้าเว็บไซต์
       liff.openWindow({
